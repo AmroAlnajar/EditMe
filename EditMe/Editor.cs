@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.IO;
 
 namespace EditMe
 {
@@ -22,6 +23,22 @@ namespace EditMe
 
             return new Bitmap(originalImage);
         }
+
+        /// <summary>
+        /// Returns a Bitmap image with a timestamp consisting of the current date and time
+        /// </summary>
+        public static Bitmap AddTimestamp(String imagePath, PointF location, Brush color)
+        {
+            var image = new Bitmap(imagePath);
+
+            var graphicsObject = Graphics.FromImage(image);
+            
+            graphicsObject.DrawString(DateTime.Now.ToString(), new Font("Arial", 10), color, location);
+
+            return image;
+        }
+
+
 
 
 
