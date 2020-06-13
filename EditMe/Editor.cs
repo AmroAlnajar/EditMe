@@ -12,5 +12,18 @@ namespace EditMe
             return new Bitmap(originalImage, new Size(width, height)); 
         }
 
+
+        public static Bitmap RotateImage(String path, RotateFlipType rotation)
+        {
+
+            var originalImage = Image.FromFile(path);
+            
+            originalImage.RotateFlip(rotation);
+
+            return new Bitmap(originalImage);
+        }
+
+
+
     }
 }
